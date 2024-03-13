@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+    <record id="dhalig_sale_order_form" model="ir.ui.view">
+      <field name="name">dhalig.sale.order.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+            <field name="request_vendor"/>
+            <field name="no_kontrak"/>
+        </xpath>
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="with_po"/>
+        </xpath>
+
+        <xpath expr="//page[@name='order_lines']" position="after">
+            <page string="Purchase Orders">
+                <field name="purchase_orders_ids" widget="one2many_list">    
+                </field>
+            </page>
+        </xpath>
+        <xpath expr="//header/button[@name='action_cancel']" position="after">
+          <button name="action_create_po" 
+            string="Create PO" 
+            type="object" 
+            class="oe_highlight"
+            attrs="{'invisible': [('with_po', '=', False)]}"/>
+          <button name="action_import_so_lines" string="Import SO Lines" type="object"/>
+        </xpath>
+
+      </field>
+  </record>
+</data>
+</odoo>

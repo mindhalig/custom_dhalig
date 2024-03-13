@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="import_so_lines_wizard_view_form2" model="ir.ui.view">
+        <field name="name">import.so.lines.wizard.form</field>
+        <field name="model">import.so.lines.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import SO Lines">
+                <group>
+                    <field name="data_file" filename="Excel File"/>
+                </group>
+                <footer>
+                    <button string="Import" type="object" name="action_import_so_lines" class="btn-primary"/>
+                    <button string="Download Template" type="object" name="action_download_template"/>
+                    <button string="Cancel" special="cancel" class="btn-primary btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
